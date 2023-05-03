@@ -13,29 +13,28 @@ CREATE TABLE IF NOT EXISTS public."Libro"
     PRIMARY KEY (id_libro)
 );
 
-CREATE TABLE IF NOT EXISTS public."Tema"
-(
-    id_tema serial NOT NULL,
-    nombre_tema character varying(60) NOT NULL,
-    PRIMARY KEY (id_tema)
-);
-
 CREATE TABLE IF NOT EXISTS public."Socio"
 (
     id_socio serial NOT NULL,
     nombre character varying(60) NOT NULL,
-    fecha_alta date NOT NULL,
+    antiguedad date NOT NULL,
     PRIMARY KEY (id_socio)
+);
+
+CREATE TABLE IF NOT EXISTS public."Tema"
+(
+    id_tema serial NOT NULL,
+    nombre character varying(60) NOT NULL,
+    PRIMARY KEY (id_tema)
 );
 
 CREATE TABLE IF NOT EXISTS public."Prestamo"
 (
     id_prestamo serial NOT NULL,
     fecha_inicio date NOT NULL,
-    fehca_fin date NOT NULL,
+    fecha_fin date NOT NULL,
     id_libro integer NOT NULL,
-    id_socio integer NOT NULL,
-    PRIMARY KEY (id_prestamo)
+    id_socio integer NOT NULL
 );
 
 ALTER TABLE IF EXISTS public."Libro"
